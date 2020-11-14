@@ -85,7 +85,14 @@ and out through the return value. We don’t usually expect information to be go
     - Repeat code can be a multiple-fold opportunity for an error of omission
     - Duplication may be the root of all evil in software
 
-   
-    
+11. Structured Programming
+    - every function, and every block within a function, should have one entry and one exit.(即函数中只应该有一个return =》 循环中不应该有break/continue） 
+    对小函数用处不大，用时候return/break/continue 很不错，只需我们尽力保持函数短小
+  
+12. 那么，药（要）在哪里（怎样）才能买（做）的到呢？
+    - 刚开始写出来可能都丑， 尽力打磨
+
+
+
     
  
