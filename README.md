@@ -13,3 +13,22 @@ Notes for book [Clean Code](https://enos.itcollege.ee/~jpoial/oop/naited/Clean%2
 [5.格式](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap5.md)
 
 [6.对象和数据结构](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap6.md)
+
+[7.错误处理](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap7.md)
+
+[8.边界](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap8.md)
+
+[9.单元测试](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap9.md)
+
+[10.类](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap10.md)
+
+[11.系统](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap11.md)
+
+[12.迭进](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap12.md)
+
+[13.并发编程](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap13.md)
+
+[14.逐步改进](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap14.md)
+
+[15.Junit内幕](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap15.md)
+
