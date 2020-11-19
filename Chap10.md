@@ -26,7 +26,7 @@ impact of those details.
     - A client class depending upon concrete details is at risk when those details change. We can introduce interfaces and abstract classes to help isolate the
 impact of those details.
     我们不依赖于Portfolio 类的任何细节，而是利用StockExchange接口来写test
- 
+      ```
       public interface StockExchange {
        Money currentPrice(String symbol);
       }
@@ -52,6 +52,7 @@ impact of those details.
          Assert.assertEquals(500, portfolio.value());
          }
         }
- 
+       ```
+       
   - By minimizing coupling in this way, our classes adhere to another class design principle known as the Dependency Inversion Principle (DIP)
   - In essence, the DIP says that ourclasses should depend upon abstractions, not on concrete details.
