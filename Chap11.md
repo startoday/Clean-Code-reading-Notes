@@ -25,3 +25,10 @@
       图例的话就是从main指出来的箭头都指向了其他application的部分，其他部分不需要知道main的任何knowledge
       
 3. Factories
+    **Not very Familiar with this， will need to come back later**
+ 
+4. Java Proxies
+    - Java proxies are suitable for simple situations, such as wrapping method calls in individual objects or classes. 
+    However, the dynamic proxies provided in the JDK only work with interfaces. 
+    
+Domain-Specific Languages allow all levels of abstraction and all domains in the application to be expressed as POJOs, from high-level policy to low-level details. 
