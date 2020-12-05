@@ -32,3 +32,4 @@ Notes for book [Clean Code](https://enos.itcollege.ee/~jpoial/oop/naited/Clean%2
 
 [17.smell和 Heuristics(启发）](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap17.md)
 
+[附录 并发编程](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap18.md)
