@@ -222,12 +222,71 @@
   
 - Functions Should Descend Only One Level of Abstraction
 - Keep Configurable Data at High Levels
+
+  位于较高层级的配置性常量易于修改；他们向下贯穿程序，较低层级并不拥有这些常量值
+  
 - Avoid Transitive Navigation
 
+  if A collaborates with B, and B collaborates with C, we don’t want modules that use A to know about C. (For example, we don’t want a.getB().getC().doSomething();.)
+  
+  The good way:    myCollaborator.doSomething().
+  
+  
+5. Java
+- Avoid Long Import Lists by Using Wildcards
+- Don’t Inherit Constants  =>import static PayrollConstants.*;
+- Constants versus Enums 可以考虑Enums
 
-    
+6. Names
+- Choose Descriptive Names
+- Choose Names at the Appropriate Level of Abstraction
+  
+  不要取沟通实现的名称，取反应类或者函数抽象层级的名称
+  
+- Use Standard Nomenclature Where Possible
 
+  “ubiquitous language”  项目的共同语言
+  
+- Unambiguous Names 选无歧义的名称
+- Use Long Names for Long Scopes
+- Avoid Encodings
+- Names Should Describe Side-Effects
 
+  eg： 
+     ```
+       public ObjectOutputStream getOos() throws IOException {
+
+         if (m_oos == null) {
+
+           m_oos = new ObjectOutputStream(m_socket.getOutputStream());
+
+         }
+
+         return m_oos;
+
+       }
+     ```
+  This function does a bit more than get an “oos”; it creates the “oos” if it hasn’t been created already. Thus, a better name might be createOrReturnOos.
+  
+7. TESTS
+- Insufficient Tests
+- Use a Coverage Tool!
+- Don’t Skip Trivial Tests
+- An Ignored Test Is a Question about an Ambiguity(被忽略的测试就是对不确定食物的疑问）
+
+  有的时候我们会注释掉测试或者使用 @ignore； 这就是个问题
+  
+- Test Boundary Conditions
+- Exhaustively Test Near Bugs
+  
+  缺陷趋向于扎堆，在某个函数中发现一个bug时，最好全面测试这个函数，你可能会发现不止一个bug
+
+- Patterns of Failure Are Revealing
+- Test Coverage Patterns Can Be Revealing
+- Test Coverage Patterns Can Be Revealing
+- Tests Should Be Fast
+
+     
   
   
 
