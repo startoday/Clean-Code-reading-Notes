@@ -77,35 +77,36 @@
          int overtimePay = (int)Math.round(overTime*tenthRate*1.5);
 
          return new Money(straightPay + overtimePay);
-       }
-     }
+           }
+         }
+       
      ```
    The calculateWeeklyPay method reaches into the HourlyEmployee object to get the data on which it operates. (NO GOOD!)
   
  - Selector Arguments
  
     ```
-    public int calculateWeeklyPay(boolean overtime) {
+      public int calculateWeeklyPay(boolean overtime) {
 
-     int tenthRate = getTenthRate();
+       int tenthRate = getTenthRate();
 
-     int tenthsWorked = getTenthsWorked();
+       int tenthsWorked = getTenthsWorked();
 
-     int straightTime = Math.min(400, tenthsWorked);
+       int straightTime = Math.min(400, tenthsWorked);
 
-     int overTime = Math.max(0, tenthsWorked - straightTime);
+       int overTime = Math.max(0, tenthsWorked - straightTime);
 
-     int straightPay = straightTime * tenthRate;
+       int straightPay = straightTime * tenthRate;
 
-     double overtimeRate = overtime ? 1.5 : 1.0 * tenthRate;
+       double overtimeRate = overtime ? 1.5 : 1.0 * tenthRate;
 
-     int overtimePay = (int)Math.round(overTime*overtimeRate);
+       int overtimePay = (int)Math.round(overTime*overtimeRate);
 
-     return straightPay + overtimePay;
+       return straightPay + overtimePay;
 
-   }
+       }
 
-  ``` 
+    ``` 
   you have to remember what overtime means in the function (NO GOOD!)
   
   Of course, selectors need not be boolean. They can be enums, integers, or any other type of argument that is used to select the behavior of the function. In general it is better to have many functions than to pass some code into a function to select the behavior.
@@ -113,19 +114,20 @@
 - Obscured Intent
   
   代码要尽可能具有表达力， 下面这个东西就 很难理解
-  ```
-     public int m_otCalc() {
+    ```
+       public int m_otCalc() {
 
-   return iThsWkd * iThsRte +
+     return iThsWkd * iThsRte +
 
-     (int) Math.round(0.5 * iThsRte *
+       (int) Math.round(0.5 * iThsRte *
 
-       Math.max(0, iThsWkd - 400)
+         Math.max(0, iThsWkd - 400)
 
-     );
+       );
 
-   }
-   ```
+      }
+    ```
+  
 - Misplaced Responsibility
 
   make wise decision on where to put code; put a place easy for people not only u!
@@ -138,19 +140,100 @@
   
   One of the more powerful ways to make a program readable is to break the calculations up into intermediate values that are held in variables with meaningful names.
   
-  ```
-  Matcher match = headerPattern.matcher(line);
+    ```
+      Matcher match = headerPattern.matcher(line);
 
-   if(match.find())
+       if(match.find())
 
-   {
+       {
 
-     String key = match.group(1);
+         String key = match.group(1);
 
-     String value = match.group(2);
+         String value = match.group(2);
 
-     headers.put(key.toLowerCase(), value);
+         headers.put(key.toLowerCase(), value);
 
-   }
-   ```
-   解释了中间步骤的意思
+       }
+     ```
+   
+ 解释了中间步骤的意思
+ 
+- Function Names Should Say What They Do
+- Understand the Algorithm
+- Make Logical Dependencies Physical
+
+  If one module depends upon another, that dependency should be physical, not just logical. 比如我要打印一个文件，那么page size 不应该作为常量形成一个logic 依赖，而应该是 get page size ，仅仅成为一个物理依赖
+   
+- Prefer Polymorphism to If/Else or Switch/Case
+
+  consider polymorphism before using a switch.
+
+- Follow Standard Conventions
+- Replace Magic Numbers with Named Constants
+- Be Precise 准确
+  
+  Ambiguities and imprecision in code are either a result of disagreements or laziness. In either case they should be eliminated.
+  
+- Structure over Convention 结构往往比约定更重要
+  
+  比如 用基类和具体类 比switch 更好
+  
+- Encapsulate Conditionals
+  
+  Boolean logic is hard enough to understand without having to see it in the context of an if or while statement. Extract functions that explain the intent of the conditional.
+  比如  if (shouldBeDeleted(timer)) 比 if (timer.hasExpired() && !timer.isRecurrent()) 更好
+  
+- Avoid Negative Conditionals
+  
+  否定比肯定难明白一些，尽可能将 条件式改为 肯定的形式， 比如 if (buffer.shouldCompact()) 比 if (!buffer.shouldNotCompact()) 好
+  
+- Functions Should Do One Thing
+- Hidden Temporal Couplings（掩蔽时序耦合）=》 不应该！！！
+  
+    ```
+        public class MoogDiver {
+
+         Gradient gradient;
+
+         List<Spline> splines;
+
+
+
+         public void dive(String reason) {
+
+           saturateGradient();
+
+           reticulateSplines();
+
+           diveForMoog(reason);
+
+         }
+
+         …
+
+       }
+     ```
+     比如上面这段代码，是有先后顺序的， 但是却没有展现出来，这样使用者可能调用错误顺序而导致一些异常； 可以通过创建顺序队列来暴露时序耦合； 每个函数都产生出下一个函数所需的结果
+     
+- Don’t Be Arbitrary 不要太随意
+- Encapsulate Boundary Conditions
+  
+  Boundary conditions are hard to keep track of. Put the processing for them in one place. Don’t let them leak all over the code. We don’t want swarms of +1s and -1s scattered hither and yon. 出现超过一次的时候就应该封装边界条件
+  
+- Functions Should Descend Only One Level of Abstraction
+- Keep Configurable Data at High Levels
+- Avoid Transitive Navigation
+
+
+    
+
+
+  
+  
+
+
+
+ 
+
+ 
+ 
