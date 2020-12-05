@@ -30,5 +30,5 @@ Notes for book [Clean Code](https://enos.itcollege.ee/~jpoial/oop/naited/Clean%2
 
 [14.逐步改进](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap14.md)
 
-[15.Junit内幕](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap15.md)
+[17.smell和 Heuristics(启发）](https://github.com/startoday/Clean-Code-reading-Notes/blob/main/Chap17.md)
 
